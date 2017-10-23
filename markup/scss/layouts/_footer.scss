@@ -1,0 +1,38 @@
+.connection-section {
+	background: $gray;
+	margin: 0 -9999px;
+	padding: 0 9999px;
+	color: $white;
+	text-align: center;
+	padding: 43px 0;
+
+	h2 {
+		color: $gold-alt2;
+	}
+
+	p {}
+}
+
+.main-section {
+
+	.list-columns {
+		@extend %listreset;
+		
+		li{
+
+			.sub-list {
+				@extend %listreset;
+
+				a {
+					text-decoration: none;
+					color: $base-text-color;
+				}
+			}			
+		}
+	}
+
+	.rights {
+		display: block;
+		text-align: right;
+	}
+}

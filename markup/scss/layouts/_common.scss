@@ -1,0 +1,323 @@
+.text-center {text-align: center;}
+.text-uppercase {text-transform: uppercase;}
+
+.divider {
+	display: block;
+	height: 1px;
+	background: $gold;
+	margin-bottom: 30px !important;
+}
+
+h1, .h1 {
+	margin: 0 0 20px;
+	color: $gold;
+	font-weight: 700;
+
+	@include media ('>=tablet') {
+		margin: 0 0 60px;
+	}
+}
+
+#wrapper {
+	position: relative;
+	overflow: hidden;
+	min-width: $base-min-width;
+}
+
+#main {
+	a {
+		@include animate(color);
+		text-decoration: none;
+	}
+}
+
+.container {
+	max-width: 915px;
+	padding: 0 39px;
+	margin: 0 auto;
+}
+
+.page-holder {
+	margin: 45px 0 0;
+
+	@include media ('>=tablet') {
+		margin: 0 0 0 240px;
+	}
+}
+
+.foot-notes {
+	@extend %listreset;
+	font-size: 10px;
+
+	li {
+		counter-increment: step-counter;
+
+		&:before {
+			content: counter(step-counter)'';
+			float: left;
+		}
+	}
+}
+
+.share-box {
+	.title {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		text-transform: uppercase;
+		font-weight: 600;
+		padding: 0 0 11px;
+		margin: 0 0 15px;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background: $gold;
+		}
+	}
+}
+
+.share-list {
+	@extend %listreset;
+
+	li {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		padding: 0 17px;
+
+		&:first-child {
+			padding-left: 0;
+
+			&:before {
+				display: none;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -2px;
+			width: 1px;
+			background: $gold;
+		}
+	}
+
+	a {
+		color: $base-text-color;
+		text-decoration: none;
+
+		&:hover {
+			color: $gold;
+		}
+	}
+}
+
+.read-more {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 0 0 11px;
+	margin: 0 0 15px;
+	color: $base-text-color;
+
+	&:hover {
+		color: $gold;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: $gold;
+	}
+}
+
+.article-block {
+
+
+	&.top-article {
+
+		@include media ('>=desktop') {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.visual,
+		.content {
+
+			@include media ('>=desktop') {
+				width: 50%;
+			}
+		}
+
+		h1, .h1 {
+			@include media ('>=desktop') {
+				order: 1;
+				width: 100%;
+				text-align: center;
+			}
+		}
+
+		.visual {
+
+			@include media ('>=desktop') {
+				order: 3;
+				margin: 0;
+				min-height: 749px;
+			}
+		}
+
+		.content {
+
+			@include media ('>=tablet') {
+				padding: 0 50px;
+				order: 2;
+				align-self: center;
+				max-width: none;
+			}
+		}
+	}
+
+
+	.visual {
+		display: block;
+		background-position: 50% 50%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 30vw;
+
+		@include media ('>=desktop') {
+			order: 2;
+			height: 37.3vw;
+			width: 100%;
+			margin: 0 0 90px;
+		}
+	}
+
+	.content {
+		@include media ('>=desktop') {
+			max-width: 473px;
+			padding: 0 0 0 65px;
+		}
+	}
+}
+
+.articles-group {
+
+	@include media ('>=desktop') {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.article-block {
+		@include media ('>=desktop') {
+			width: 50%;
+		}
+	}
+}
+
+.slider-holder {
+	padding: 0 0 30px;
+}
+
+.slick-slider {
+
+	.slick-track {
+		display: flex !important;
+	}
+
+	.slick-slide {
+		position: relative;
+		height: auto !important;
+		border-right: 1px solid $gold;
+	}
+
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: none;
+		border: none;
+		box-shadow: none;
+		font-size: 0;
+		outline: none;
+		color: $gold;
+		cursor: pointer;
+
+		&:before {
+			@extend %icon;
+			font-size: 40px;
+		}
+
+		&.slick-prev {
+			right: 100%;
+
+			&:before {
+				content: $icon-chevron-left;
+			}
+		}
+
+		&.slick-next {
+			left: 100%;
+
+			&:before {
+				content: $icon-chevron-right;
+			}
+		}
+	}
+
+	.read-more {
+		position: absolute;
+		bottom: 0;
+		left: 20px;
+	}
+}
+
+.post {
+	padding: 0 20px;
+	font-size: 11px;
+
+	.img-box {
+		background: $gray-light;
+
+		a {
+			height: 125px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		img {
+			display: block;
+			max-width: 89px;
+		}
+	}
+
+	.post-content {
+		padding: 0 0 35px;
+	}
+
+	strong {
+		display: block;
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+}
