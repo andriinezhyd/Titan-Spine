@@ -1,38 +1,126 @@
 .connection-section {
 	background: $gray;
-	margin: 0 -9999px;
-	padding: 0 9999px;
 	color: $white;
 	text-align: center;
 	padding: 43px 0;
 
 	h2 {
 		color: $gold-alt2;
+		text-transform: uppercase;
+		font-weight: 700;
 	}
 
 	p {}
+
+	.signup-form {
+
+		.input-holder {
+			position: relative;
+
+			input[type="email"] {
+				width: 100%;
+				padding-right: 100px;
+				padding: 9px 0 11px 16px;
+				outline: none;
+				font-size: 14px;
+				line-height: 1;
+				border: 1px solid transparent;
+
+				&:focus {
+					border: 1px solid #d1ac7b;
+				}
+			}
+
+			button {
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 0 30px;
+				font-weight: 500;
+				border: none;
+				outline: none;
+				color: #272c2f;
+				background-color: #d1ac7b;
+				line-height: 32px;
+			}
+		}
+	}
 }
 
 .main-section {
+	@extend %clearfix;
+
+	font-size: 13px;
+	line-height: 27px;
+
+	@include media ('>=tablet'){
+		padding: 0 38px;
+	}
 
 	.list-columns {
 		@extend %listreset;
-		
-		li{
 
-			.sub-list {
-				@extend %listreset;
+		display: block;
+		columns: 2;
+		text-align: left;
+		column-gap: 0;
 
-				a {
-					text-decoration: none;
-					color: $base-text-color;
-				}
-			}			
+		@include media ('>=tablet'){
+			columns: 3;
+			width: 75%;
+			float: left;
+			// padding-left: 38px;
+		}
+
+		&>li:last-child {
+			margin-bottom: 70px;
+
+			@include media ('>=tablet'){
+				margin-bottom: 0;
+			}
+		}
+
+		a {
+			white-space: nowrap;
+			text-decoration: none;
+			color: $base-text-color;
 		}
 	}
 
-	.rights {
+	.contacts {
 		display: block;
 		text-align: right;
+
+		@include media ('>=tablet'){
+			width: 25%;
+			float: right;
+			// padding-right: 38px;
+		}
+
+		.sub-list {
+			@extend %listreset;
+
+			a {
+				text-decoration: none;
+				color: $base-text-color;
+			}
+		}
+
+		.rights {
+			font-size: 9px;
+			text-decoration: none;
+			padding-right: 18px;
+
+			@include media ('>=tablet'){
+				padding-right: 0;
+			}
+
+			&:hover {
+				color: lighten($base-link-color, 10%);
+			}
+		}		
 	}
+
+
 }
