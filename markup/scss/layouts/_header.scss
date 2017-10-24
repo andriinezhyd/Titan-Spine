@@ -8,7 +8,7 @@
 
 	@include media ('>=tablet') {
 		right: auto;
-		width: 240px;
+		width: 245px;
 		height: 100vh;
 		border-right: 5px solid $gold;
 	}
@@ -24,7 +24,7 @@
 	@include media ('>=tablet') {
 		display: block;
 		width: 162px;
-		margin: 37px auto;
+		margin: 32px auto;
 	}
 
 	a, img {
@@ -111,13 +111,13 @@
 
 	@include media ('>=tablet') {
 		flex-grow: 1;
-		padding: 40px 30px;
+		padding: 63px 30px;
 	}
 
 	> li {
-		margin: 0 0 40px;
+		margin: 0 0 46px;
 
-		&.current-page {
+		/* &.current-page {
 			> a {
 				&:after {
 					content: '';
@@ -130,17 +130,14 @@
 					background: $gold-alt2;
 				}
 			}
-		}
+		} */
 
 		> a {
-			position: relative;
 			text-transform: uppercase;
 		}
 
 		ul {
 			padding: 28px 0 0 30px;
-
-			li.current-page {color: $gold-alt3;}
 		}
 	}
 
@@ -168,6 +165,21 @@
 			}
 		}
 
+		&.current-page {
+			> a {
+				&:after {
+					content: '';
+					position: absolute;
+					top: 100%;
+					left: 0;
+					height: 3px;
+					width: 35px;
+					margin: 6px 0 0;
+					background: $gold-alt2;
+				}
+			}
+		}
+
 		&.active {
 			> a {
 				&:before {
@@ -181,6 +193,7 @@
 	a {
 		display: inline-block;
 		vertical-align: top;
+		position: relative;
 		color: inherit;
 		text-decoration: none;
 
@@ -207,7 +220,7 @@
 		width: 100%;
 		height: 45px;
 		background: $white;
-		padding: 10px 65px 10px 28px;
+		padding: 10px 50px 10px 28px;
 		font-size: 12px;
 		line-height: 14px;
 		border: none;
@@ -228,7 +241,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: 50px;
+		width: 39px;
 		font-size: 26px;
 		background: transparent;
 		box-shadow: none;
