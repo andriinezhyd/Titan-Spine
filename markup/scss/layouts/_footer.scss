@@ -2,29 +2,40 @@
 	background: $gray;
 	color: $white;
 	text-align: center;
-	padding: 43px 0;
+	padding: 45px 0 30px;
 
 	h2 {
 		color: $gold-alt2;
 		text-transform: uppercase;
 		font-weight: 700;
+		margin-bottom: 10px;
 	}
 
-	p {}
+	p {
+		margin-bottom: 25px;
+	}
 
 	.signup-form {
 
 		.input-holder {
 			position: relative;
+			max-width: 388px;
+			margin: 0 auto 3px;
+			color: $base-text-color;
 
 			input[type="email"] {
 				width: 100%;
-				padding-right: 100px;
-				padding: 9px 0 11px 16px;
+				padding: 7px 16px 7px 16px;
 				outline: none;
 				font-size: 14px;
-				line-height: 1;
+				line-height: 16px;
 				border: 1px solid transparent;
+				margin-bottom: 32px;
+
+				@include media('>=tablet') {
+					margin-bottom: 0;
+					padding-right: 115px;
+				}
 
 				&:focus {
 					border: 1px solid #d1ac7b;
@@ -32,10 +43,6 @@
 			}
 
 			button {
-				display: inline-block;
-				position: absolute;
-				top: 0;
-				right: 0;
 				padding: 0 30px;
 				font-weight: 500;
 				border: none;
@@ -43,84 +50,101 @@
 				color: #272c2f;
 				background-color: #d1ac7b;
 				line-height: 32px;
+				color: #272c2f;
+
+				@include media('>=tablet') {
+					display: inline-block;
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
 			}
 		}
 	}
 }
 
 .main-section {
-	@extend %clearfix;
-
 	font-size: 13px;
-	line-height: 27px;
+	line-height: 30px;
+	padding: 40px 0 30px;
+	border-bottom: 4px solid $gold-alt3;
 
-	@include media ('>=tablet'){
-		padding: 0 38px;
+	@include media ('>=tablet') {
+		padding: 40px 38px 30px;
 	}
 
-	.list-columns {
-		@extend %listreset;
+	.container {
+		@extend %clearfix;
 
-		display: block;
-		columns: 2;
-		text-align: left;
-		column-gap: 0;
-
-		@include media ('>=tablet'){
-			columns: 3;
-			width: 75%;
-			float: left;
-			// padding-left: 38px;
-		}
-
-		&>li:last-child {
-			margin-bottom: 70px;
-
-			@include media ('>=tablet'){
-				margin-bottom: 0;
-			}
-		}
-
-		a {
-			white-space: nowrap;
-			text-decoration: none;
-			color: $base-text-color;
-		}
-	}
-
-	.contacts {
-		display: block;
-		text-align: right;
-
-		@include media ('>=tablet'){
-			width: 25%;
-			float: right;
-			// padding-right: 38px;
-		}
-
-		.sub-list {
+		.list-columns {
 			@extend %listreset;
 
+			display: block;
+			columns: 2;
+			text-align: left;
+			column-gap: 0;
+
+			@include media('>=phone') {
+				width: 60%;
+				float: left;
+			}
+
+			@include media ('>=desktop') {
+				columns: 3;
+				width: 75%;
+			}
+
+			&>li:last-child {
+				margin-bottom: 70px;
+
+				@include media ('>=phone') {
+					margin-bottom: 0;
+				}
+			}
+
 			a {
+				white-space: nowrap;
 				text-decoration: none;
 				color: $base-text-color;
 			}
 		}
 
-		.rights {
-			font-size: 9px;
-			text-decoration: none;
-			padding-right: 18px;
+		.contacts {
+			display: block;
+			text-align: right;
 
-			@include media ('>=tablet'){
-				padding-right: 0;
+			@include media('>=tablet') {
+				float: right;
 			}
 
-			&:hover {
-				color: lighten($base-link-color, 10%);
+			@include media ('>=desktop') {
+				width: 25%;
 			}
-		}		
-	}
 
+			.sub-list {
+				@extend %listreset;
 
+				a {
+					text-decoration: none;
+					color: $base-text-color;
+				}
+			}
+
+			.rights {
+				font-size: 9px;
+				text-decoration: none;
+				padding-right: 18px;
+				white-space: nowrap;
+				text-transform: uppercase;
+
+				@include media ('>=phone') {
+					padding-right: 0;
+				}
+
+				&:hover {
+					color: lighten($base-link-color, 10%);
+				}
+			}		
+		}
+	}	
 }

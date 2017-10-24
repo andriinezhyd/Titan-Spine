@@ -17,13 +17,13 @@ input[type='password'],
 textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  font-size: 14px;
+  line-height: 1.2;
   box-sizing: border-box;
   border: 1px solid $form-element-border-color;
   padding: $form-element-padding;
-
-  // &:hover {
-    
-  // }
+  font-weight: 700;
+  width: 100%;
 
   &:focus {
     border-color: $form-element-focus-border-color;
@@ -31,6 +31,11 @@ textarea {
 
   @include placeholder {
     color: $placeholder-color;
+  }
+
+  @include media('>=tablet') {
+    font-size: 19px;
+    font-weight: 500;
   }
 }
 
