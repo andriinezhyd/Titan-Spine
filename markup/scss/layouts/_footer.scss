@@ -2,21 +2,35 @@
 	background: $gray;
 	color: $white;
 	text-align: center;
-	padding: 45px 0 30px;
+	padding: 42px 0 39px;
+	line-height: 19px;
 
-	h2 {
-		color: $gold-alt2;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin-bottom: 10px;
+	@include media('>=tablet') {
+		padding: 30px 0;
 	}
 
-	p {
-		margin-bottom: 25px;
+	.heading {
+		padding: 0 16px;
+
+		@include media('>=tablet') {
+			padding: 0 0 0 16px;
+		}
+
+		h5 {
+			color: $gold-alt2;
+			text-transform: uppercase;
+			font-weight: 700;
+			letter-spacing: 0.045em;
+			margin-bottom: 18px;
+		}
+
+		p {
+			margin-bottom: 27px;
+		}
 	}
 
-	.signup-form {
-
+	.signup-form {	
+		
 		.input-holder {
 			position: relative;
 			max-width: 388px;
@@ -25,16 +39,17 @@
 
 			input[type="email"] {
 				width: 100%;
-				padding: 7px 16px 7px 16px;
+				padding: 7px 14px 7px 14px;
 				outline: none;
 				font-size: 14px;
 				line-height: 16px;
 				border: 1px solid transparent;
 				margin-bottom: 32px;
+				font-weight: 400;
 
 				@include media('>=tablet') {
 					margin-bottom: 0;
-					padding-right: 115px;
+					padding-right: 123px;
 				}
 
 				&:focus {
@@ -43,7 +58,7 @@
 			}
 
 			button {
-				padding: 0 30px;
+				padding: 0 32px 0 32px;
 				font-weight: 500;
 				border: none;
 				outline: none;
@@ -54,6 +69,7 @@
 				@include media('>=tablet') {
 					display: inline-block;
 					position: absolute;
+					padding: 0 34px 0 30px;
 					top: 0;
 					right: 0;
 				}
@@ -70,12 +86,14 @@
 
 .main-section {
 	font-size: 13px;
-	line-height: 30px;
-	padding: 40px 0 30px;
+	line-height: 23px;
+	padding: 30px 0 15px;
+	line-height: 28px;
 	border-bottom: 4px solid $gold-alt3;
 
 	@include media ('>=tablet') {
-		padding: 40px 38px 30px;
+		padding: 40px 38px 17px;
+		line-height: 30px;
 	}
 
 	.container {
@@ -88,6 +106,7 @@
 			columns: 2;
 			text-align: left;
 			column-gap: 0;
+			margin-bottom: 20px;
 
 			@include media('>=phone') {
 				width: 60%;
@@ -120,7 +139,7 @@
 
 		.contacts {
 			display: block;
-			text-align: right;
+			text-align: right;			
 
 			@include media('>=tablet') {
 				float: right;
@@ -133,6 +152,12 @@
 			.sub-list {
 				@extend %listreset;
 
+				margin-bottom: 15px;
+
+				@include media('>=tablet') {
+					margin-bottom: 42px;
+				}
+
 				a {
 					text-decoration: none;
 					color: $base-text-color;
@@ -140,18 +165,18 @@
 					&:hover {
 						text-decoration: underline;
 					}
-				}
+				}				
 			}
 
 			.rights {
-				font-size: 9px;
+				font-size: 10px;
 				text-decoration: none;
-				padding-right: 18px;
 				white-space: nowrap;
 				text-transform: uppercase;
 
 				@include media ('>=phone') {
 					padding-right: 0;
+					margin-bottom: 28px;
 				}
 
 				&:hover {

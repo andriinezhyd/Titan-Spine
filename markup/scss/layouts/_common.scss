@@ -3,16 +3,31 @@
 
 .divider {
 	display: block;
+	position: relative;
 	height: 1px;
-	background: $gold;
-	margin-bottom: 30px !important;
+	margin-bottom: 57px !important;
+
+	@include media ('>=tablet') {
+		margin-bottom: 86px !important;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 20px;
+		right: 20px;
+		bottom: 0;
+		background: $gold;
+	}
 }
 
 h1, .h1 {
-	margin: 0 0 20px;
+	margin: 0 0 17px;
 	color: $gold;
 	font-weight: 700;
 	font-size: 32px;
+	line-height: 1.2;
 
 	@include media ('>=tablet') {
 		margin: 0 0 48px;
@@ -23,15 +38,36 @@ h1, .h1 {
 h2, .h2 {
 	margin: 0 0 20px;
 	font-weight: 700;
+	font-size: 18px;
 
 	@include media ('>=tablet') {
-		margin: 0 0 44px;
+		margin: 0 0 35px;
 		font-size: $h2-font-size;
 	}
 }
 
 p {
 	margin: 0 0 1.7em;
+}
+
+.btn {
+	@include animate(background color border-color);
+	display: inline-block;
+	vertical-align: top;
+	background: transparent;
+	border: 1px solid $black;
+	color: $gold-alt3;
+	text-align: center;
+	text-decoration: none;
+
+	&:hover {
+		border-color: $gold-alt3;
+		color: $black;
+	}
+
+	&.btn-lg {
+		padding: 15px 40px 4px;
+	}
 }
 
 #wrapper {
@@ -42,7 +78,6 @@ p {
 
 #main {
 	a {
-		@include animate(color);
 		text-decoration: none;
 	}
 }
@@ -57,6 +92,10 @@ p {
 	margin: 45px 0 0;
 
 	@include media ('>=tablet') {
+		margin: 0 0 0 245px;
+	}
+
+	@include media ('>=desktop') {
 		margin: 61px 0 0 245px;
 	}
 }
@@ -85,6 +124,11 @@ p {
 		font-weight: 600;
 		padding: 0 0 3px;
 		margin: 0 0 13px;
+		font-size: 10px;
+
+		@include media ('>=tablet') {
+			font-size: $font-size-base;
+		}
 
 		&:after {
 			content: '';
@@ -119,8 +163,8 @@ p {
 		&:before {
 			content: '';
 			position: absolute;
-			top: 5px;
-			bottom: 5px;
+			top: 0;
+			bottom: 8px;
 			left: -3px;
 			width: 1px;
 			background: $gold;
@@ -128,6 +172,8 @@ p {
 	}
 
 	a {
+		@include animate(color);
+		display: block;
 		color: $base-text-color;
 		text-decoration: none;
 
@@ -138,14 +184,20 @@ p {
 }
 
 .read-more {
+	@include animate(color);
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
 	text-transform: uppercase;
 	font-weight: 600;
-	padding: 0 0 11px;
+	padding: 0 0 6px;
 	margin: 0 0 15px;
 	color: $base-text-color;
+	font-size: 10px;
+
+	@include media ('>=tablet') {
+		font-size: 12px;
+	}
 
 	&:hover {
 		color: $gold;
@@ -181,6 +233,8 @@ p {
 		}
 
 		h1, .h1 {
+			padding: 0 40px;
+
 			@include media ('>=desktop') {
 				order: 1;
 				width: 100%;
@@ -191,28 +245,42 @@ p {
 		h2, .h2 {
 			margin: 0 0 20px;
 			font-weight: 700;
+			font-size: 14px;
 
 			@include media ('>=tablet') {
-				margin: 0 0 44px;
+				margin: 0 0 49px;
 				font-size: $h2-font-size;
 			}
 		}
 
 		.visual {
+			height: 30vw;
 
 			@include media ('>=desktop') {
 				order: 3;
 				margin: 0;
 				min-height: 749px;
+				height: auto;
 			}
 		}
 
 		.content {
+			padding: 0 40px 46px;
 
 			@include media ('>=tablet') {
-				padding: 41px 59px 0;
+				padding: 0 20px 41px;
 				order: 2;
 				max-width: none;
+			}
+
+			@include media ('>=widescreen') {
+				padding: 41px 59px;
+			}
+
+			p {
+				@include media ('>=tablet') {
+					margin: 0 0 1.7em;
+				}
 			}
 		}
 	}
@@ -220,10 +288,13 @@ p {
 
 	.visual {
 		display: block;
+		position: relative;
 		background-position: 50% 50%;
 		background-size: cover;
 		background-repeat: no-repeat;
-		height: 30vw;
+		height: 64vw;
+		margin: 0 0 25px;
+		z-index: 2;
 
 		@include media ('>=desktop') {
 			order: 2;
@@ -234,17 +305,24 @@ p {
 	}
 
 	.content {
+		padding: 0 40px;
 		@include media ('>=desktop') {
 			max-width: 477px;
 			padding: 0 0 0 60px;
 		}
+
+		p {
+			@include media ('>=tablet') {
+				margin: 0 0 1.1em;
+			}
+		}
 	}
 
 	h2, .h2 {
-		margin: 0 0 20px;
+		margin: 0 0 26px;
 
 		@include media ('>=tablet') {
-			margin: 0 0 22px;
+			margin: 0 0 26px;
 		}
 	}
 }
@@ -254,17 +332,85 @@ p {
 	@include media ('>=desktop') {
 		display: flex;
 		flex-wrap: wrap;
+		margin: 0;
 	}
 
 	.article-block {
+		position: relative;
+		margin: 0 0 21px;
+		padding: 0 0 6px;
+		overflow: hidden;
+
 		@include media ('>=desktop') {
 			width: 50%;
+			margin: 0 0 35px;
+			padding: 0;
+		}
+
+		&:last-child {
+			margin: 0 0 9px;
+		}
+
+		&:nth-child(2n) {
+			&:after {
+				display: none;
+			}
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 100%;
+			left: 15px;
+			right: 15px;
+			height: 1px;
+			background: $gold;
+
+			@include media ('>=desktop') {
+				top: 0;
+				bottom: 0;
+				height: auto;
+				width: 1px;
+				left: auto;
+				right: 0;
+			}
 		}
 	}
 }
 
 .slider-holder {
-	padding: 0 0 30px;
+	position: relative;
+	padding: 0 40px 10px;
+	max-width: 876px;
+
+	@include media ('>=widescreen') {
+		padding: 0 0 84px;
+	}
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 5px;
+		background: $white;
+		left: 40px;
+
+		@include media ('>=widescreen') {
+			left: 0;
+		}
+	}
+
+	&:after {
+		left: auto;
+		right: 40px;
+
+		@include media ('>=widescreen') {
+			left: auto;
+			right: 0;
+		}
+	}
 }
 
 .slick-slider {
@@ -276,13 +422,17 @@ p {
 	.slick-slide {
 		position: relative;
 		height: auto !important;
-		border-right: 1px solid $gold;
+
+		&.slick-active {
+			@include media ('>=phone') {
+				border-right: 1px solid $gold;
+			}
+		}
 	}
 
 	.slick-arrow {
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 78px;
 		background: none;
 		border: none;
 		box-shadow: none;
@@ -291,9 +441,19 @@ p {
 		color: $gold;
 		cursor: pointer;
 
+		@include media ('>=tablet') {
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 9px 0 0;
+		}
+
 		&:before {
 			@extend %icon;
-			font-size: 40px;
+			font-size: 32px;
+
+			@include media ('>=tablet') {
+				font-size: 40px;
+			}
 		}
 
 		&.slick-prev {
@@ -316,22 +476,47 @@ p {
 	.read-more {
 		position: absolute;
 		bottom: 0;
-		left: 20px;
+		left: 0;
+
+		@include media ('>=phone') {
+			left: 10px;
+		}
+
+		@include media ('>=tablet') {
+			left: 30px;
+		}
 	}
 }
 
 .post {
-	padding: 0 20px;
+	padding: 0;
 	font-size: 11px;
+
+	@include media ('>=phone') {
+		padding: 0 10px;
+	}
+
+	@include media ('>=tablet') {
+		padding: 0 30px;
+	}
 
 	.img-box {
 		background: $gray-light;
+		margin: 0 0 16px;
+
+		@include media ('>=tablet') {
+			margin: 0 0 26px;
+		}
 
 		a {
-			height: 125px;
+			height: 193px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			@include media ('>=tablet') {
+				height: 125px;
+			}
 		}
 
 		img {
@@ -341,7 +526,17 @@ p {
 	}
 
 	.post-content {
-		padding: 0 0 35px;
+		padding: 0 0 21px;
+
+		&.with-read-more {
+			padding: 0 0 52px;
+		}
+
+		&.text-center {
+			@include media ('<tablet') {
+				text-align: left;
+			}
+		}
 	}
 
 	strong {
@@ -353,6 +548,34 @@ p {
 			&:hover {
 				color: $gold;
 			}
+		}
+	}
+}
+
+.intro-text {
+	margin: 0 0 25px;
+
+	@include media ('>=tablet') {
+		text-align: center;
+		margin: 0 0 66px;
+	}
+}
+
+.connect-holder {
+	padding: 0 40px 23px;
+
+	@include media ('>=tablet') {
+		padding: 0 0 47px;
+	}
+
+	.btn {
+
+		@include media ('<tablet') {
+			padding: 28px 40px 18px;
+		}
+
+		@include media ('>=tablet') {
+			min-width: 382px;
 		}
 	}
 }

@@ -1,0 +1,34 @@
+.article-block {
+
+	&.top-article {
+
+		.video-holder {
+			order: 2;
+			width: 100%;
+		}
+	}
+}
+
+.three-blocks {
+	
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	.article-block {
+		width: 100%;
+		max-width: 240px;
+
+		.visual {
+			height: 15vw;
+			background: $gray-light;
+			background-size: cover;
+			background-repeat: no-repeat;
+			margin: 0 0 35px;
+
+		}
+
+		.content {
+			padding-left: 0;
+		}
+	}
+}

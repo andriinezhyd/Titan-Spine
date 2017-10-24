@@ -5,6 +5,7 @@
 	right: 0;
 	background: $gray-light;
 	min-height: 45px;
+	z-index: 100;
 
 	@include media ('>=tablet') {
 		right: auto;
@@ -37,7 +38,7 @@
 	top: 0;
 	right: 0;
 	height: 45px;
-	width: 45px;
+	width: 50px;
 	border-left: 5px solid $gold-alt2;
 	background: $gray;
 
@@ -76,7 +77,8 @@
 	left: 0;
 	right: 0;
 	max-height: 0;
-	overflow: hidden;
+	overflow: auto;
+	z-index: 100;
 
 	@include media ('>=tablet') {
 		position: static;
@@ -87,13 +89,14 @@
 
 .nav-holder {
 	@include animate(transform);
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	transform: translateY(-100%);
+	height: calc(100vh - 45px);
 
 	@include media ('>=tablet') {
-		display: flex;
-		flex-direction: column;
-		height: calc(100vh - 162px);
+		height: calc(100vh - 155px);
 		transform: translateY(0);
 	}
 }
@@ -106,31 +109,22 @@
 .main-nav {
 	color: $white;
 	background: $gray;
-	padding: 40px 49px;
+	padding: 35px 49px;
+	font-size: 12px;
 	font-weight: 700;
+	flex-grow: 1;
 
 	@include media ('>=tablet') {
-		flex-grow: 1;
-		padding: 63px 30px;
+		font-size: 14px;
+		padding: 63px 20px 63px 30px;
 	}
 
 	> li {
-		margin: 0 0 46px;
+		margin: 0 0 29px;
 
-		/* &.current-page {
-			> a {
-				&:after {
-					content: '';
-					position: absolute;
-					top: 100%;
-					left: 0;
-					height: 3px;
-					width: 35px;
-					margin: 15px 0 0;
-					background: $gold-alt2;
-				}
-			}
-		} */
+		@include media ('>=tablet') {
+			margin: 0 0 46px;
+		}
 
 		> a {
 			text-transform: uppercase;
@@ -138,6 +132,16 @@
 
 		ul {
 			padding: 28px 0 0 30px;
+
+			@include media ('>=tablet') {
+				padding: 18px 0 0;
+			}
+
+			li {
+				@include media ('>=tablet') {
+					margin: 0 0 8px;
+				}
+			}
 		}
 	}
 
@@ -153,7 +157,7 @@
 					transform: translateY(-50%);
 					width: 0;
 					height: 0;
-					margin: 0 0 0 30px;
+					margin: 0 0 0 40px;
 					border-style: solid;
 					border-width: 5px 5px 0 5px;
 					border-color: $gold-alt2 transparent transparent transparent;
@@ -204,6 +208,13 @@
 }
 
 .nav-active {
+	height: 100vh;
+	overflow: hidden;
+
+	@include media ('>=tablet') {
+		height: auto;
+		overflow: visible;
+	}
 	#nav {
 		max-height: 100vh;
 	}
@@ -237,16 +248,25 @@
 	}
 
 	[type="submit"] {
+		@include animate(color);
 		position: absolute;
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: 39px;
+		width: 45px;
 		font-size: 26px;
 		background: transparent;
 		box-shadow: none;
 		border: none;
 		color: $gold-alt3;
+
+		@include media ('>=tablet') {
+			width: 39px;
+		}
+
+		&:hover {
+			color: $gold;
+		}
 
 		i {
 			position: absolute;
@@ -268,6 +288,7 @@
 	li {
 		flex-grow: 1;
 		border-right: 1px solid $gold-alt2;
+		min-height: 54px;
 
 		&:last-child {
 			border: none;
@@ -292,4 +313,8 @@
 			transform: translate(-50%, -50%);
 		}
 	}
+}
+
+.resize-active {
+	#header * {transition: none !important;}
 }
