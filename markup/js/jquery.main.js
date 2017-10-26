@@ -90,9 +90,10 @@ function initSlideShow() {
 		slides: '.slide',
 		btnPrev: '.btn-prev',
 		btnNext: '.btn-next',
-		autoHeight: false,
+		autoHeight: true,
+		generatePagination: true,  
 		useSwipe: true, 
-		autoRotation: true
+		autoRotation: false
 	});
 }
 

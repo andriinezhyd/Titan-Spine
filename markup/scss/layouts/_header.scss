@@ -32,6 +32,22 @@
 	a, img {
 		display: block;
 	}
+
+	.mobile-logo {
+		display: block;
+
+		@include media ('>=tablet') {
+			display: none;
+		}
+	}
+
+	.desktop-logo {
+		display: none;
+
+		@include media ('>=tablet') {
+			display: block;
+		}
+	}
 }
 
 .nav-opener {
@@ -89,16 +105,20 @@
 }
 
 .nav-holder {
-	@include animate(transform);
+	@include animate(transform visibility opacity);
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	transform: translateY(-100%);
 	height: calc(100vh - 45px);
+	opacity: 0;
+	visibility: hidden;
 
 	@include media ('>=tablet') {
 		height: calc(100vh - 155px);
 		transform: translateY(0);
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
@@ -216,12 +236,15 @@
 		height: auto;
 		overflow: visible;
 	}
+
 	#nav {
 		max-height: 100vh;
 	}
 
 	.nav-holder {
 		transform: translateY(0);
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
