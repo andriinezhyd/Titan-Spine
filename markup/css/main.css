@@ -1166,6 +1166,15 @@ p {
     color: #272c2f; }
   .btn.btn-lg {
     padding: 15px 40px 4px; }
+  .btn.btn-sm {
+    padding: 3px 14px; }
+  .btn.btn-default {
+    background: #58595b;
+    color: #d1ac7b;
+    border-color: transparent; }
+    .btn.btn-default:hover {
+      background: #d1ac7b;
+      color: #58595b; }
 
 #wrapper {
   position: relative;
@@ -1795,7 +1804,7 @@ a {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      padding: 0 0 0 60px; } }
+      padding: 0 60px; } }
   .about-module .info-visual-module .content {
     padding: 0 33px; }
     @media (min-width: 1024px) {
@@ -1950,6 +1959,8 @@ a {
   @media (min-width: 1024px) {
     .intro-section {
       min-height: 100vh; } }
+  .intro-section.first-section h1 {
+    font-size: 35px; }
   .intro-section .anchor-link {
     position: absolute;
     bottom: 10px;
@@ -1982,7 +1993,7 @@ a {
         width: 0;
         height: 100vh; } }
   .intro-section .description {
-    padding: 0 40px 0 0; }
+    padding: 0 40px 40px 0; }
     @media (min-width: 1024px) {
       .intro-section .description {
         padding: 100px 40px 100px 0; } }
@@ -1993,16 +2004,30 @@ a {
     -ms-flex-negative: 0;
         flex-shrink: 0;
     text-align: center;
-    width: 100%;
-    max-height: 50vh; }
+    width: 50%;
+    max-height: 50vh;
+    margin: 0 auto; }
     @media (min-width: 1024px) {
       .intro-section .visual {
         width: 40%;
         max-height: none; } }
-    @media (min-width: 1024px) {
-      .intro-section .visual.bottom-aligned {
-        -ms-flex-item-align: end;
-            align-self: flex-end; } }
+    @media (max-width: 1023px) {
+      .intro-section .visual.right-aligned-on-mobile {
+        float: right;
+        margin: 0 -39px 0 0;
+        width: 80%; } }
+    .intro-section .visual.bottom-aligned {
+      float: right;
+      margin: 0 -39px 0 0; }
+      @media (min-width: 1024px) {
+        .intro-section .visual.bottom-aligned {
+          -ms-flex-item-align: end;
+              align-self: flex-end;
+          float: none;
+          margin: 0; } }
+      @media (max-width: 1023px) {
+        .intro-section .visual.bottom-aligned:not(.full-size-on-mobile) {
+          margin-bottom: -30%; } }
     .intro-section .visual img {
       display: block;
       width: 100%; }
@@ -2748,7 +2773,8 @@ a {
       margin-bottom: 10px; }
 
 .form-holder {
-  background-color: #ebebeb; }
+  background-color: #ebebeb;
+  margin-bottom: 82px; }
   .form-holder .header {
     padding: 21px 0;
     text-align: center;
