@@ -147,12 +147,17 @@
 			margin: 0 0 46px;
 		}
 
+		&:last-child {
+			margin: 0;
+		}
+
 		> a {
 			text-transform: uppercase;
 		}
 
 		ul {
 			padding: 28px 0 0 30px;
+			font-weight: 300;
 
 			@include media ('>=tablet') {
 				padding: 18px 0 0;

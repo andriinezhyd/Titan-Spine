@@ -29,7 +29,7 @@
 		}
 	}
 
-	.signup-form {	
+	.signup-form {
 		
 		.input-holder {
 			position: relative;
@@ -69,6 +69,8 @@
 				color: #272c2f;
 				background-color: $gold;
 				line-height: 32px;
+				height: 100%;
+
 
 				@include media('>=tablet') {
 					display: inline-block;
@@ -96,70 +98,40 @@
 	border-bottom: 4px solid $gold-alt3;
 
 	@include media ('>=tablet') {
-		padding: 40px 38px 17px;
+		padding: 40px 36px 17px;
 		line-height: 30px;
 	}
 
 	.container {
-		@extend %clearfix;
 
-		.list-columns {
-			@extend %listreset;
+		.list-holder {
+			@extend %clearfix;
 
-			display: block;
-			columns: 2;
-			text-align: left;
-			column-gap: 0;
-			margin-bottom: 20px;
-
-			@include media('>=phone') {
-				width: 60%;
-				float: left;
-			}
-
-			@include media ('>=desktop') {
-				columns: 3;
-				width: 75%;
-			}
-
-			&>li:last-child {
-				margin-bottom: 70px;
-
-				@include media ('>=phone') {
-					margin-bottom: 0;
-				}
-			}
-
-			a {
-				white-space: nowrap;
-				text-decoration: none;
-				color: $base-text-color;
-
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-		}
-
-		.contacts {
-			display: block;
-			text-align: right;			
-
-			@include media('>=tablet') {
-				float: right;
-			}
-
-			@include media ('>=desktop') {
-				width: 25%;
-			}
-
-			.sub-list {
+			.list-columns {
 				@extend %listreset;
 
-				margin-bottom: 15px;
+				display: block;
+				columns: 2;
+				text-align: left;
+				column-gap: 0;
+				margin-bottom: 20px;
 
-				@include media('>=tablet') {
-					margin-bottom: 42px;
+				@include media('>=phone') {
+					width: 60%;
+					float: left;
+				}
+
+				@include media ('>=desktop') {
+					columns: 3;
+					width: 75%;
+				}
+
+				&>li:last-child {
+					margin-bottom: 70px;
+
+					@include media ('>=phone') {
+						margin-bottom: 0;
+					}
 				}
 
 				a {
@@ -169,10 +141,46 @@
 					&:hover {
 						text-decoration: underline;
 					}
-				}				
+				}
 			}
 
-			.rights {
+			.contacts {
+				display: block;
+				text-align: right;
+
+				@include media('>=tablet') {
+					float: right;
+				}
+
+				@include media ('>=desktop') {
+					width: 25%;
+				}
+
+				.sub-list {
+					@extend %listreset;
+
+					margin-bottom: 15px;
+
+					@include media('>=tablet') {
+						margin-bottom: 42px;
+					}
+
+					a {
+						text-decoration: none;
+						color: $base-text-color;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+
+		.copyright-holder {
+			text-align: right;
+
+			a {
 				font-size: 10px;
 				text-decoration: none;
 				white-space: nowrap;

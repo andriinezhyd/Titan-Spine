@@ -132,6 +132,7 @@ a {
 
 .page-holder {
 	margin: 45px 0 0;
+	position: relative;
 
 	@include media ('>=tablet') {
 		margin: 0 0 0 245px;
@@ -190,7 +191,11 @@ a {
 
 .share-list {
 	@extend %listreset;
-	font-size: 12px;
+	font-size: 10px;
+
+	@include media ('>=desktop') {
+		font-size: 12px;
+	}
 
 	li {
 		display: inline-block;
@@ -521,6 +526,10 @@ a {
 
 	.post {
 		font-size: 11px;
+
+		.post-content {
+			padding: 0 0 6px;
+		}
 	}
 }
 
@@ -808,6 +817,14 @@ a {
 		.post-content {
 			padding: 0;
 		}
+
+		.video-embed {
+			min-height: 150px;
+
+			@include media ('>=desktop') {
+				min-height: 270px;
+			}
+		}
 	}
 }
 
@@ -1002,19 +1019,6 @@ a {
 		.title {
 			display: block;
 		}
-
-		dl {
-			display: inline-block;
-			vertical-align: top;
-			margin: 0;
-
-			dt, dd {
-				display: inline-block;
-				vertical-align: top;
-				margin: 0;
-				padding: 0;
-			}
-		}
 	}
 }
 
@@ -1023,12 +1027,13 @@ a {
 	@include media ('>=desktop') {
 		padding: 0 0 40px;
 	}
+
 	h1 {
-		text-align: center;
 		color: $base-text-color;
 		font-size: 18px;
 
 		@include media ('>=desktop') {
+			text-align: center;
 			color: $gold;
 			font-size: $h1-font-size;
 		}
@@ -1062,7 +1067,7 @@ a {
 
 		@include media ('>=desktop') {
 			display: inline;
-			white-space: wrap;
+			white-space: normal;
 		}
 
 		&:hover {
