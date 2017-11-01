@@ -458,9 +458,11 @@
 	width: 100%;
 	padding-bottom: 56.25%;
 	margin-bottom: 6px;
+	min-height: 200px;
 
 	@include media('>=tablet') {
 		margin-bottom: 40px;
+		min-height: 470px;
 	}
 
 	iframe {
@@ -615,4 +617,9 @@
 	font-size: 18px;
 	display: block;
 	margin: 0 0 20px;
+
+	&:before,
+	&:after {
+		content: '"';
+	}
 }

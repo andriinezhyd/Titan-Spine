@@ -167,6 +167,12 @@
 				@include media ('>=tablet') {
 					margin: 0 0 8px;
 				}
+
+				&.current-page {
+					a {
+						&:after {margin: 0;}
+					}
+				}
 			}
 		}
 	}
